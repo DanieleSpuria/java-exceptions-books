@@ -41,45 +41,35 @@ public class Main {
 		scan.close();
 		
 		FileWriter myWriter = null;
-		
-
-		
+	
 		try {
-			myWriter = new FileWriter("file.txt");
-			
+			myWriter = new FileWriter("file.txt");	
 			for (int i = 0; i < n; i++) {
-				myWriter.write(libri[i].toString() + "\n");
+				myWriter.write("\n°°°° Libro " + (i+1) + " °°°°");
+				myWriter.write(libri[i] + "\n");
+				myWriter.write("°°°°°°°°°°°°°°°°°\n");
 			}
-		} catch (IOException e) {
-			
+		} catch (IOException e) {		
 			System.err.println("Error updating file: " + e.getMessage());
-		} finally {
-			
+		} finally {		
 			try {
 				myWriter.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
-		
+			
 		File tmpFile = new File("file.txt");
 		Scanner reader = null;
-		try {
-			
-			reader = new Scanner(tmpFile);
-			
-			while (reader.hasNextLine()) {
-				
+		try {		
+			reader = new Scanner(tmpFile);		
+			while (reader.hasNextLine()) {			
 				String line = reader.nextLine();
 				System.out.println(line);
 			}
 		} catch (Exception e) { 
-		
 			System.out.println("Error reading file: " + e.getMessage());
-		} finally {
-			
+		} finally {		
 			if (reader != null)
 				reader.close();
 		}
