@@ -41,8 +41,7 @@ public class Libro {
 	
 	@Override
 	public String toString() {
-		return "°°Libro°°\n" + 
-			   "\nTitolo: "  + getTitolo()  + "\n" +
+		return "\nTitolo: "  + getTitolo()  + "\n" +
 			   "Autore: "    + getAutore()  + "\n" + 
 			   "Editore: "   + getEditore() + "\n" +
 			   "Pagine :"    + getPagine(); 
