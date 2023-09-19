@@ -1,10 +1,13 @@
 package org.library;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		Scanner scan = new Scanner(System.in);
 		
@@ -37,9 +40,48 @@ public class Main {
 		
 		scan.close();
 		
-		for (int i = 0; i < n; i++) {
-			System.out.println("\n°°° Libro " + (i + 1) + " °°°");
-			System.out.println(libri[i]);			
+		FileWriter myWriter = null;
+		
+
+		
+		try {
+			myWriter = new FileWriter("file.txt");
+			
+			for (int i = 0; i < n; i++) {
+				myWriter.write(libri[i].toString() + "\n");
+			}
+		} catch (IOException e) {
+			
+			System.err.println("Error updating file: " + e.getMessage());
+		} finally {
+			
+			try {
+				myWriter.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		File tmpFile = new File("file.txt");
+		Scanner reader = null;
+		try {
+			
+			reader = new Scanner(tmpFile);
+			
+			while (reader.hasNextLine()) {
+				
+				String line = reader.nextLine();
+				System.out.println(line);
+			}
+		} catch (Exception e) { 
+		
+			System.out.println("Error reading file: " + e.getMessage());
+		} finally {
+			
+			if (reader != null)
+				reader.close();
 		}
 		
 	}
