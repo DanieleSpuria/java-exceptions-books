@@ -11,8 +11,7 @@ public class Main {
 		int n   = 0;
 		
 		System.out.println("Quanti libri vuoi aggiungere?");
-		n = scan.nextInt();
-		scan.nextLine();
+		n = Integer.valueOf(scan.nextLine());
 		
 		Libro[] libri = new Libro[n];
 		
@@ -24,11 +23,16 @@ public class Main {
 			System.out.print("Editore: ");
 			String editore = scan.nextLine();
 			System.out.print("Pagine: ");
-			int pagine = scan.nextInt();
+			String pagine = scan.nextLine();
 			System.out.println(" ");
-			scan.nextLine();
 			
-			libri[i] = new Libro(titolo, pagine, autore, editore);
+			try {
+				libri[i] = new Libro(titolo, pagine, autore, editore);				
+			} catch (Exception e) {			
+				System.err.println(e);
+				System.out.println("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°\n");
+				i--;
+			}
 		}
 		
 		scan.close();
