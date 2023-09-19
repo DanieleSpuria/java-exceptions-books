@@ -41,10 +41,10 @@ public class Libro {
 	
 	@Override
 	public String toString() {
-		return "Libro:\n" + 
-			   "Titolo: " + getTitolo() +
-			   "Autore: " + getAutore() +
-			   "Editore: "+ getEditore()+
-			   "Pagine :" + getPagine();
+		return "°°Libro°°\n" + 
+			   "\nTitolo: "  + getTitolo()  + "\n" +
+			   "Autore: "    + getAutore()  + "\n" + 
+			   "Editore: "   + getEditore() + "\n" +
+			   "Pagine :"    + getPagine(); 
 	}
 }
